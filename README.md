@@ -5,7 +5,7 @@
 -
 This homework is to develop an application called a text editor that runs in the browser. The app will be a single-page application that meets the PWA criteria. Additionally, it will feature a number of data persistence techniques that serve as redundancy in case one of the options is not supported by the browser. The application will also function offline.
 
--Developer notes:- 
+-Developer notes:- works locally but having problems with heroku will fix in future development.
  
 **User Story**
 -
@@ -43,7 +43,9 @@ This homework is to develop an application called a text editor that runs in the
   
 **Deployed link & Screenshot**
 -
-- 
+- https://text-editorcb-957e127eb470.herokuapp.com/
+  <img width="1411" alt="Screenshot 2023-07-09 at 6 03 27 pm" src="https://github.com/Boulter97/text-editor/assets/118101244/b354801e-0243-4d5f-b838-44fbfe8a2121">
+
 **References & Resources**
 -
 - https://www.google.com.au/
