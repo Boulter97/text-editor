@@ -2,7 +2,7 @@ const butInstall = document.getElementById('buttonInstall');
 
 window.addEventListener('beforeinstallprompt', (event) => {
   event.preventDefault();
-  const deferredPrompt = event;
+  let deferredPrompt = event;
 
   butInstall.style.display = 'block';
 

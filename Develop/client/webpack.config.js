@@ -3,9 +3,6 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
-// TODO: Add and configure workbox plugins for a service worker and manifest file.
-// TODO: Add CSS loaders and babel to webpack.
-
 module.exports = () => {
   return {
     mode: 'development',
@@ -24,7 +21,7 @@ module.exports = () => {
       new InjectManifest({
         swSrc: './src-sw.js',
       }),
-      new WebpackPwaManifest ({
+      new WebpackPwaManifest({
         filename: 'mainfest.json',
         name: 'Just Another Text Editor',
         short_name: 'J.A.T.E',
@@ -33,15 +30,15 @@ module.exports = () => {
         theme_color: 'orange',
         start_url: '/',
         display: 'standalone',
-        icons: [{
-          src: path.resolve('src/assets/icons/icon_96x96.png'),
-          sizes:[96, 128, 192, 256, 384, 512],
-          purpose: 'any maskable',
-        },
-      ],
-    }),
-  ],
-
+        icons: [
+          {
+            src: path.resolve('/Users/boulter97/Documents/text-editor/Develop/client/src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            purpose: 'any maskable',
+          },
+        ],
+      }),
+    ],
     module: {
       rules: [
         {
@@ -49,10 +46,11 @@ module.exports = () => {
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
-            options: {
-              presents: ['@babel/preset-env'],
-            },
           },
+        },
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader'],
         },
       ],
     },
