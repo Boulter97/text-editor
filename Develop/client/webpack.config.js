@@ -20,14 +20,40 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
-      });
-      
-      
-    ],
+      }),
+      new InjectManifest({
+        swSrc: './src-sw.js',
+      }),
+      new WebpackPwaManifest ({
+        filename: 'mainfest.json',
+        name: 'Just Another Text Editor',
+        short_name: 'J.A.T.E',
+        description: 'A simple text editor application',
+        background_color: 'white',
+        theme_color: 'orange',
+        start_url: '/',
+        display: 'standalone',
+        icons: [{
+          src: path.resolve('src/assets/icons/icon_96x96.png'),
+          sizes:[96, 128, 192, 256, 384, 512],
+          purpose: 'any maskable',
+        },
+      ],
+    }),
+  ],
 
     module: {
       rules: [
-        
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presents: ['@babel/preset-env'],
+            },
+          },
+        },
       ],
     },
   };
